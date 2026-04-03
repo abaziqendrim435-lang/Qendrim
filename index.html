@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Everyday Sneaker | Qendrim</title>
+    <style>
+      :root {
+        --bg: #f5f5f7;
+        --card: #ffffff;
+        --text: #1d1d1f;
+        --muted: #6e6e73;
+        --line: #d2d2d7;
+        --accent: #0071e3;
+        --accent-hover: #0062c3;
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: linear-gradient(180deg, #fbfbfd, #f3f3f5 60%, #efeff1);
+        color: var(--text);
+      }
+
+      .wrapper {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem 1rem;
+      }
+
+      .product {
+        width: min(1080px, 100%);
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 2rem;
+        background: var(--card);
+        border: 1px solid #e5e5ea;
+        border-radius: calc(var(--radius) + 6px);
+        box-shadow: 0 30px 55px rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 1rem;
+      }
+
+      .hero {
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        overflow: hidden;
+        background: #f2f2f2;
+      }
+
+      .hero img {
+        width: 100%;
+        height: 100%;
+        min-height: 460px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
+
+      .hero img:hover {
+        transform: scale(1.02);
+      }
+
+      .thumbs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .thumb {
+        border: 2px solid transparent;
+        border-radius: 12px;
+        padding: 0;
+        overflow: hidden;
+        background: #f2f2f2;
+        cursor: pointer;
+      }
+
+      .thumb[aria-selected="true"] {
+        border-color: var(--accent);
+      }
+
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .details {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        background: #e7f1ff;
+        color: #0058b0;
+        border-radius: 999px;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      h1 {
+        margin: 0;
+        line-height: 1.12;
+        font-size: clamp(1.6rem, 3vw, 2.35rem);
+      }
+
+      .desc {
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.65rem;
+      }
+
+      .price {
+        font-size: clamp(1.6rem, 3vw, 2.25rem);
+        font-weight: 700;
+      }
+
+      .old-price {
+        color: #8e8e93;
+        text-decoration: line-through;
+      }
+
+      .buy {
+        margin-top: 0.25rem;
+        border: none;
+        border-radius: 999px;
+        background: var(--accent);
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.9rem 1.2rem;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.1s ease;
+      }
+
+      .buy:hover {
+        background: var(--accent-hover);
+      }
+
+      .buy:active {
+        transform: translateY(1px);
+      }
+
+      .meta {
+        margin-top: 0.75rem;
+        border-top: 1px solid var(--line);
+        padding-top: 0.75rem;
+        display: grid;
+        gap: 0.5rem;
+        color: #4b4b4d;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 880px) {
+        .product {
+          grid-template-columns: 1fr;
+        }
+
+        .hero img {
+          min-height: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrapper">
+      <section class="product" aria-label="Product page">
+        <div class="gallery">
+          <div class="hero">
+            <img
+              id="main-image"
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80"
+              alt="Nova Everyday Sneaker front angle"
+            />
+          </div>
+          <div class="thumbs" role="tablist" aria-label="Product image thumbnails">
+            <button class="thumb" aria-selected="true" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80" data-alt="Nova Everyday Sneaker front angle">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Front angle thumbnail" />
+            </button>
+            <button class="thumb" aria-selected="false" data-image="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=1400&q=80" data-alt="Nova Everyday Sneaker top angle">
+              <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=400&q=80" alt="Top angle thumbnail" />
+            </button>
+            <button class="thumb" aria-selected="false" data-image="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=1400&q=80" data-alt="Nova Everyday Sneaker side angle">
+              <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=400&q=80" alt="Side angle thumbnail" />
+            </button>
+            <button class="thumb" aria-selected="false" data-image="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1400&q=80" data-alt="Nova Everyday Sneaker lifestyle angle">
+              <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=400&q=80" alt="Lifestyle angle thumbnail" />
+            </button>
+          </div>
+        </div>
+
+        <div class="details">
+          <span class="badge">Best Seller</span>
+          <h1>Nova Everyday Sneaker</h1>
+          <p class="desc">
+            Lightweight comfort meets modern street style. Breathable knit upper,
+            responsive foam sole, and all-day support built for daily wear.
+          </p>
+
+          <div class="price-row">
+            <span class="price">$129.00</span>
+            <span class="old-price">$159.00</span>
+          </div>
+
+          <button class="buy" type="button">Buy now</button>
+
+          <div class="meta">
+            <div>Free shipping on orders over $50</div>
+            <div>30-day easy returns</div>
+            <div>In stock — ships in 24 hours</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const mainImage = document.getElementById("main-image");
+      const thumbs = document.querySelectorAll(".thumb");
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          thumbs.forEach((btn) => btn.setAttribute("aria-selected", "false"));
+          thumb.setAttribute("aria-selected", "true");
+          mainImage.src = thumb.dataset.image;
+          mainImage.alt = thumb.dataset.alt;
+        });
+      });
+    </script>
+  </body>
+</html>
